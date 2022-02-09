@@ -2,6 +2,7 @@ package com.atos.firstbackend.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.atos.firstbackend.model.User;
 import com.atos.firstbackend.repository.UserRepository;
@@ -41,6 +42,25 @@ public class UserServiceImp implements UserService {
 			return new ResponseEntity<>(_user, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Override
+	public ResponseEntity<User> updateUser(int userId, User user) {
+		Optional<User> userData = userRepository.findById(userId);
+		if (userData.isPresent()) {
+			User _user = userData.get();
+			_user.setUserName(user.getUserName());
+			_user.setPassword(user.getPassword());
+			_user.setIdProfile(user.getIdProfile());
+			_user.setIdEmployee(user.getIdEmployee());
+			_user.setStatus(user.getStatus());
+			_user.setCreatedDate(user.getCreatedDate());
+			_user.setUpdatedDate(user.getUpdatedDate());
+			_user.setLogin(user.getLogin());
+			return new ResponseEntity<>(userRepository.save(_user), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 

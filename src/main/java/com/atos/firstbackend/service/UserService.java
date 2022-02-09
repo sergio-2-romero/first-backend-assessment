@@ -12,4 +12,6 @@ public interface UserService {
 
 	ResponseEntity<User> createUser(User user);
 
+	ResponseEntity<User> updateUser(int userId, User user);
+
 }
