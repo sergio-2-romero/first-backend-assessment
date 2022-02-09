@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.atos.firstbackend.model.User;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public interface UserService {
@@ -13,5 +14,7 @@ public interface UserService {
 	ResponseEntity<User> createUser(User user);
 
 	ResponseEntity<User> updateUser(int userId, User user);
+
+	ResponseEntity<HttpStatus> deleteUser(int userId);
 
 }

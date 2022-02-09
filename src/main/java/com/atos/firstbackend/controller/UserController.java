@@ -1,7 +1,9 @@
 package com.atos.firstbackend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +36,11 @@ public class UserController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") int userId, @RequestBody User user) {
 		return userService.updateUser(userId, user);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") int userId) {
+		return userService.deleteUser(userId);
 	}
 
 }

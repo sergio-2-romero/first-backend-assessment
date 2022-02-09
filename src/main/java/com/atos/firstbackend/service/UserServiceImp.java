@@ -64,4 +64,14 @@ public class UserServiceImp implements UserService {
 		}
 	}
 
+	@Override
+	public ResponseEntity<HttpStatus> deleteUser(int userId) {
+		try {
+			userRepository.deleteById(userId);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 }
