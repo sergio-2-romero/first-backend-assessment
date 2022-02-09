@@ -10,4 +10,6 @@ public interface UserService {
 
 	ResponseEntity<List<User>> getAllUsers();
 
+	ResponseEntity<User> createUser(User user);
+
 }

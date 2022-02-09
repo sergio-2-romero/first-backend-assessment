@@ -26,6 +26,20 @@ public class User {
     @Column(name = "Login")
     private int login;
 
+    public User() {
+    }
+
+    public User(String userName, String password, int idProfile, int idEmployee, String status, String createdDate, String updatedDate, int login) {
+		this.userName = userName;
+		this.password = password;
+        this.idProfile = idProfile;
+        this.idEmployee = idEmployee;
+        this.status = status;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.login = login;
+	}
+
     public int getIdUser() {
         return this.idUser;
     }
