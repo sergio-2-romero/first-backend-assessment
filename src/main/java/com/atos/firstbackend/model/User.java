@@ -24,7 +24,7 @@ public class User {
     @Column(name = "UpdatedDate")
     private String updatedDate;
     @Column(name = "Login")
-    private boolean login;
+    private int login;
 
     public int getIdUser() {
         return this.idUser;
@@ -90,15 +90,11 @@ public class User {
         this.updatedDate = updatedDate;
     }
 
-    public boolean isLogin() {
+    public int getLogin() {
         return this.login;
     }
 
-    public boolean getLogin() {
-        return this.login;
-    }
-
-    public void setLogin(boolean login) {
+    public void setLogin(int login) {
         this.login = login;
     }
 }
